@@ -8,24 +8,13 @@ namespace Laboretorna_robota2
 {
     public class Task3
     {
-        protected int[,] array;
-        public Task3(int[,] array)
-        {
-            this.array = array;
-        }
-        public int[,] Array
-        {
-            get { return array; }
-            set { array = value; }
-        }
-        
         public void PrintOfArray(int[,] arr)
         {
-            for (int i = 0; i < array.GetLength(0); i++)
+            for (int i = 0; i < arr.GetLength(0); i++)
             {
-                for (int j = 0; j < array.GetLength(1); j++)
+                for (int j = 0; j < arr.GetLength(1); j++)
                 {
-                    Console.Write(array[i, j] + " ");
+                    Console.Write(arr[i, j] + " ");
 
                 }
                 Console.WriteLine();
@@ -33,9 +22,7 @@ namespace Laboretorna_robota2
         }
         public void Swap(int[,] array, int i,int j,int col)
         {
-            int temp = array[i, col];
-            array[i, col] = array[j, col];
-            array[j, col] = temp;
+            (array[i, col], array[j, col]) = (array[j, col], array[i, col]);
         }
         public void SortOfColumns(int[,] array,int start)
         {
@@ -43,7 +30,7 @@ namespace Laboretorna_robota2
             {
                 for (int i = 0; i < array.GetLength(0) - 1; i++)
                 {
-                    for (int j = i + 1; j < array.GetLength(0); j++)
+                    for (int j = 0; j < array.GetLength(0)-1-i; j++)
                     {
                         if ((start==0)?array[j, col] > array[i, col]: array[j, col] < array[i, col])
                         {

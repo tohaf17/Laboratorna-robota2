@@ -9,18 +9,6 @@ namespace Laboretorna_robota2
 {
     internal class Task4
     {
-        public int[,] array;
-
-        public Task4(int[,] array)
-        {
-            this.array = array;
-        }
-
-        public int[,] Array
-        {
-            get { return array; }
-            set { array = value; }
-        }
         public void FillingOfJudgeArray(int[,] array,out int[][] judgeArray)
         {
             judgeArray = new int[array.GetLength(0)][];
@@ -52,9 +40,9 @@ namespace Laboretorna_robota2
             PrintOfArray(tuples);
         }
 
-        public void PrintOfArray(List<Tuple<int[], int>> array)
+        public void PrintOfArray(List<Tuple<int[], int>> rows)
         {
-            foreach (var tuple in array)
+            foreach (var tuple in rows)
             {
                 foreach (var value in tuple.Item1)
                 {

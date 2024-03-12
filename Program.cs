@@ -38,7 +38,7 @@ namespace Laboratorna_robota2
                 }
             }
         }
-        static void Main(string[] args)
+        public static int[,] FillingOfArray()
         {
             Console.Write("Please,input the number of rows: ");
             int rows = int.Parse(Console.ReadLine());
@@ -46,40 +46,45 @@ namespace Laboratorna_robota2
             int columns = int.Parse(Console.ReadLine());
 
             Console.Write("Input the method of filling ");
-            int choiseOfFilling = int.Parse(Console.ReadLine());
-            int[,] baseArray=new int[rows,columns];
-            switch (choiseOfFilling)
+            int choiceOfFilling = int.Parse(Console.ReadLine());
+            int[,] baseArray = new int[rows, columns];
+            switch (choiceOfFilling)
             {
                 case 1:
-                    RandomFilling(rows,columns,baseArray);
+                    RandomFilling(rows, columns, baseArray);
                     break;
                 case 2:
-                    UserInput(rows,columns,baseArray);
+                    UserInput(rows, columns, baseArray);
                     break;
             }
-            
-
+            return baseArray;
+        }
+        public static void ChoosingOfTask(int[,] baseArray)
+        {
             Console.Write("Which of the tasks do you want to run? ");
             int numberOfTask = int.Parse(Console.ReadLine());
             switch (numberOfTask)
             {
                 case 1:
-                    Task1 task1 = new Task1(baseArray);
-                    task1.Task(baseArray);
+                    new Task1().Task(baseArray);
                     break;
                 case 2:
-                    Task2 task2 = new Task2(baseArray);
-                    task2.Task(baseArray);
+                    new Task2().Task(baseArray);
                     break;
                 case 3:
-                    Task3 task3=new Task3(baseArray);
-                    task3.Task(baseArray);
+                    new Task3().Task(baseArray);
                     break;
                 case 4:
-                    Task4 task4 = new Task4(baseArray);
-                    task4.Task(baseArray);
+                    new Task4().Task(baseArray);
                     break;
             }
+        }
+        static void Main(string[] args)
+        {
+            int[,] baseArray = FillingOfArray();
+
+            ChoosingOfTask(baseArray);
+
             Console.ReadKey();
         }
     }
