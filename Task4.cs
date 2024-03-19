@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System;using static System.Console;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -46,9 +46,9 @@ namespace Laboretorna_robota2
             {
                 foreach (var value in tuple.Item1)
                 {
-                    Console.Write(value + " ");
+                    Write(value + " ");
                 }
-                Console.WriteLine();
+                WriteLine();
             }
         }
         public void Task(int[,] array)

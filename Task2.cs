@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System;using static System.Console;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,21 +14,25 @@ namespace Laboretorna_robota2
         }
         public static void BubbleSort(int n,int[,] arr,int k)
         {
-            bool swapped = false;
-            for(int i = 0; i < n - 1; i++)
+            int min = 0,max= arr.GetLength(1)-1;
+            for (int i = 1; i < arr.GetLength(1)-1; i++)
             {
-                for(int j = 0; j < n - 1 - i; j++)
+                if (arr[k, i] < arr[k, min])
                 {
-                    if (arr[k, j] > arr[k, j + 1])
-                    {
-                        Swap(arr, j, j + 1, k);
-                        swapped = true;
-                    }
+                    min = i;
                 }
-                if (!swapped)
+                else if (arr[k, i] > arr[k, max])
                 {
-                    break ;
+                    max = i;
                 }
+            }
+            if (min != 0)
+            {
+                Swap(arr, 0, min, k);
+            }
+            if (max != arr.GetLength(1) - 1)
+            {
+                Swap(arr, arr.GetLength(1) - 1, max, k);
             }
         }
         public void PrintOfArray(int[,] arr)
@@ -37,10 +41,10 @@ namespace Laboretorna_robota2
             {
                 for (int j = 0; j < arr.GetLength(1); j++)
                 {
-                    Console.Write(arr[i, j] + " ");
+                    Write(arr[i, j] + " ");
 
                 }
-                Console.WriteLine();
+                WriteLine();
             }
         }
 

@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System;using static System.Console;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,11 +13,11 @@ namespace Laboretorna_robota2
             for(int i = 0; i < array.GetLength(0); i++)
             { 
                 int sumOfRow=0;
-                for(int j = 1; j < array.GetLength(1); j += 2)
+                for(int j = 0; j < array.GetLength(1); j += 2)
                 {
                     sumOfRow += array[i, j];
                 }
-                Console.WriteLine("Sum of row is "+sumOfRow);
+                WriteLine("Sum of row is "+sumOfRow);
             }
         }
     }

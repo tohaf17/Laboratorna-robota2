@@ -1,18 +1,16 @@
-﻿using Laboretorna_robota2;
-using System;
+﻿using Laboretorna_robota2;using static System.Math;
+using System;using static System.Console;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace Laboratorna_robota2
 {
     public class Program
     {
         public static void RandomFilling(int m, int n,int[,] array)
         {
-            int quantityOfRandom = (int)Math.Pow(n, 2) * (int)Math.Pow(m, 2) + 1;
-            Random match = new Random();
+            int quantityOfRandom = (int)Pow(n, 2) * (int)Pow(m, 2) + 1;
             
             int maxLength = quantityOfRandom.ToString().Length;
 
@@ -20,18 +18,18 @@ namespace Laboratorna_robota2
             {
                 for (int j = 0; j < n; j++)
                 {
-                    array[i, j] = match.Next(0, quantityOfRandom);
-                   
-                    Console.Write($"{array[i, j].ToString().PadLeft((maxLength + 1) / 2 + maxLength).PadRight(maxLength + 1)}");
+                    array[i, j] = new Random().Next(0, quantityOfRandom);
+
+                    Write($"{array[i, j].ToString().PadRight(maxLength + 1)}");
                 }
-                Console.WriteLine();
+                WriteLine();
             }
         }
         public static void UserInput(int n, int m,int[,] array)
         {
             for (int i = 0; i < n; i++)
             {
-                string[] data = Console.ReadLine().Trim().Split();
+                string[] data = ReadLine().Trim().Split();
                 for (int j = 0; j < m; j++)
                 {
                     array[i, j] = int.Parse(data[j]);
@@ -40,13 +38,14 @@ namespace Laboratorna_robota2
         }
         public static int[,] FillingOfArray()
         {
-            Console.Write("Please,input the number of rows: ");
-            int rows = int.Parse(Console.ReadLine());
-            Console.Write("Now input the number of columns: ");
-            int columns = int.Parse(Console.ReadLine());
+            Write("Please,input the number of rows: ");
+            int rows = int.Parse(ReadLine());
 
-            Console.Write("Input the method of filling ");
-            int choiceOfFilling = int.Parse(Console.ReadLine());
+            Write("Now input the number of columns: ");
+            int columns = int.Parse(ReadLine());
+
+            Write("Input the method of filling ");
+            int choiceOfFilling = int.Parse(ReadLine());
             int[,] baseArray = new int[rows, columns];
             switch (choiceOfFilling)
             {
@@ -61,8 +60,8 @@ namespace Laboratorna_robota2
         }
         public static void ChoosingOfTask(int[,] baseArray)
         {
-            Console.Write("Which of the tasks do you want to run? ");
-            int numberOfTask = int.Parse(Console.ReadLine());
+            Write("Which of the tasks do you want to run? ");
+            int numberOfTask = int.Parse(ReadLine());
             switch (numberOfTask)
             {
                 case 1:
@@ -85,7 +84,7 @@ namespace Laboratorna_robota2
 
             ChoosingOfTask(baseArray);
 
-            Console.ReadKey();
+            ReadKey();
         }
     }
 }
